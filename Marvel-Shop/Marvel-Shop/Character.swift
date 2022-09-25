@@ -8,6 +8,7 @@
 import Foundation
 
 struct Character {
+    let index: String
     let name: String
     let gender: String
     let age: String
