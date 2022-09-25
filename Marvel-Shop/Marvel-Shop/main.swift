@@ -39,6 +39,9 @@ var allItems: [Item] = [markArmor,shield,webShooter,gauntlet,pumpkinBombs,wings]
 var heroItemArray: [Item] = [markArmor,shield,webShooter]
 var villainItemArray: [Item] = [gauntlet,pumpkinBombs,wings]
 
+
+
+// Discounting item for specific characters.
 func discountItem(item: Item) -> String{
     var item = item
     item.price = String(Int(item.price)! - (Int(item.price)! / 25))
@@ -46,6 +49,8 @@ func discountItem(item: Item) -> String{
     return item.price
 }
 
+
+// Only displaying specific item for logged in user
 func personalShop(){
     if user?.job == "Villain"{
         for item in villainItemArray {
@@ -72,6 +77,8 @@ func personalShop(){
     }
 }
 
+
+// All items shop
 func marvelShop(){
     for item in allItems {
         print("\(item.name) - \(item.price)$")
@@ -79,6 +86,8 @@ func marvelShop(){
     }
 }
 
+
+// For buying an item
 func buyItem(item: Item) -> String{
     var newBudget = user?.budget
     newBudget = String(Int(user!.budget)! - Int(item.price)!)
@@ -86,6 +95,8 @@ func buyItem(item: Item) -> String{
     return newBudget!
 }
 
+
+// Enables user to choose between buying or looking at other items.
 func userOption(){
     print("Do you want to buy the item now or do you want to look at other items ? (You cannot buy them.)")
     print("")
@@ -109,6 +120,7 @@ func userOption(){
 }
 
 
+// Selecting Character at the beginnig of the app.
 func selectCharacter(){
     for char in allCharacters {
         print("\(char.index)- \(char.name)")
